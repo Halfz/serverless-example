@@ -3,7 +3,7 @@ require('regenerator-runtime/runtime');
 const awsServerlessExpress = require('aws-serverless-express');
 const warmer = require('lambda-warmer');
 
-const app = require('server/expressApp');
+const app = require('server/expressApp').default;
 
 // NOTE: If you get ERR_CONTENT_DECODING_FAILED in your browser, this is likely
 // due to a compressed response (e.g. gzip) which has not been handled correctly
