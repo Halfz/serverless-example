@@ -8,6 +8,14 @@ Parameters:
     Description: Node handler
     Type: String
     Default: serverless.handler
+  S3Bucket:
+    Description: s3 bucket
+    Type: String
+    Default: nextunicorn-public
+  S3Key:
+    Description: s3 key
+    Type: String
+    Default: serverless-demo.zip
 Resources:
   LambdaFunction:
     Type: AWS::Lambda::Function
@@ -19,8 +27,8 @@ Resources:
       Runtime: nodejs10.x
       FunctionName: !Ref ServiceName
       Code:
-        S3Bucket: nextunicorn-public
-        S3Key: serverless-demo.zip
+        S3Bucket: !Ref S3Bucket
+        S3Key: !Ref S3Key
   lambdaApiGatewayInvoke:
     Type: AWS::Lambda::Permission
     DependsOn:
